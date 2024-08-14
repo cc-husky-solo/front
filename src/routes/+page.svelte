@@ -1,2 +1,25 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  import SearchBar from '$lib/SearchBar.svelte';
+</script>
+
+<main>
+  <div class="search-bar">
+    <SearchBar></SearchBar>
+  </div>
+</main>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    height: 100%;
+  }
+
+  .search-bar {
+    width: 100%;
+    padding: 15px;
+  }
+</style>
