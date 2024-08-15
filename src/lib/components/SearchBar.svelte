@@ -2,7 +2,6 @@
   import { goto, pushState } from '$app/navigation';
   import Region from '$lib/interfaces/Region';
   import { Search, Button, Heading } from 'flowbite-svelte';
-  import { onMount } from 'svelte';
 
   let inputValue: string = '';
 
@@ -19,7 +18,7 @@
   <label for="search-input">
     <Heading tag="h3" class="text-center">Search Summoner</Heading>
   </label>
-  <Search bind:value={inputValue} id="search-input" placeholder="example: khaski#jp1">
+  <Search bind:value={inputValue} id="search-input" placeholder="khaski#jp1">
     <Button on:click={searchAccount}>Search</Button>
   </Search>
 </div>

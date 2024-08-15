@@ -24,15 +24,16 @@
   };
 </script>
 
-<SearchBar></SearchBar>
-
-<div class="flex flex-col items-center p-5 gap-5">
-  {#if $isLoading}
-    <Spinner color="gray" />
-  {:else if $account}
-    <SummonerCard account={$account} {setSummoner}></SummonerCard>
-    {#if $summoner}
-      <SummonerCardElo summoner={$summoner} {setLeague}></SummonerCardElo>
+<div class="flex flex-col items-center gap-5">
+  <SearchBar></SearchBar>
+  <div class="flex flex-col items-center p-5 gap-5 w-full">
+    {#if $isLoading}
+      <Spinner color="gray" />
+    {:else if $account}
+      <SummonerCard account={$account} {setSummoner}></SummonerCard>
+      {#if $summoner}
+        <SummonerCardElo summoner={$summoner} {setLeague}></SummonerCardElo>
+      {/if}
     {/if}
-  {/if}
+  </div>
 </div>
