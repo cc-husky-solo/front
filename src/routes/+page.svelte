@@ -3,7 +3,7 @@
 </script>
 
 <main>
-    <SearchBar></SearchBar>
+  <SearchBar></SearchBar>
 </main>
 
 <style>
@@ -14,10 +14,5 @@
     justify-content: center;
     flex-grow: 1;
     height: 100%;
-  }
-
-  .search-bar {
-    width: 100%;
-    padding: 15px;
   }
 </style>
