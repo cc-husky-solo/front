@@ -1,6 +1,7 @@
 import { env } from '$env/dynamic/public';
+import type Fetch from '$lib/interfaces/Fetch';
+import type Region from '$lib/interfaces/Region';
 import type RiotLolAccount from '$lib/interfaces/RiotLolAccount';
-import type { Region } from '$lib/interfaces/Types';
 import { writable } from 'svelte/store';
 
 export interface FetchAccount {
@@ -12,7 +13,7 @@ export interface FetchAccount {
 const SERVER = env.PUBLIC_SERVER;
 const endPoint = 'riot/lol/accounts/';
 
-export const useFetchAccount = (params: FetchAccount) => {
+export const useFetchAccount = (fetch: Fetch, params: FetchAccount) => {
   const data = writable<RiotLolAccount | null>(null);
   const error = writable<unknown | null>(null);
   const isLoading = writable(false);

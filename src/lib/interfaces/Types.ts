@@ -1,1 +1,0 @@
-export type Region = 'AMERICAS' | 'ASIA' | 'ESPORTS' | 'EUROPE';

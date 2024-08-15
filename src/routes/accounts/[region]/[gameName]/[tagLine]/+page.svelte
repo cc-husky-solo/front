@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { useFetchAccount, type FetchAccount } from '$lib/api/account';
   import type RiotLolAccount from '$lib/interfaces/RiotLolAccount.js';
   import { onDestroy } from 'svelte';
 
