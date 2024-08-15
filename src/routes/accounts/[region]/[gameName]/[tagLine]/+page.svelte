@@ -1,7 +1,17 @@
 <script lang="ts">
-  import type AccountDto from "$lib/interfaces/AccountDto";
+  import { useFetchAccount, type FetchAccount } from '$lib/api/account';
+  import type RiotLolAccount from '$lib/interfaces/RiotLolAccount.js';
+  import { onDestroy } from 'svelte';
 
-  export let data: AccountDto;
+  export let data;
+
+  let account: RiotLolAccount | null;
+
+  const unsubscribe = data.data.subscribe((value) => {
+    account = value;
+  });
+
+  onDestroy(unsubscribe);
 </script>
 
-<div>{JSON.stringify(data)}</div>
+<div>{JSON.stringify(account)}</div>
