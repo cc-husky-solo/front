@@ -3,9 +3,7 @@
 </script>
 
 <main>
-  <div class="search-bar">
     <SearchBar></SearchBar>
-  </div>
 </main>
 
 <style>
