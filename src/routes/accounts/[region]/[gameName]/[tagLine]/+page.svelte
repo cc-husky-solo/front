@@ -1,16 +1,38 @@
 <script lang="ts">
-  import type RiotLolAccount from '$lib/interfaces/RiotLolAccount.js';
-  import { onDestroy } from 'svelte';
+  import SearchBar from '$lib/components/SearchBar.svelte';
+  import SummonerCard from '$lib/components/SummonerCard.svelte';
+  import SummonerCardElo from '$lib/components/SummonerCardElo.svelte';
+  import type LeagueEntryDto from '$lib/interfaces/LeagueEntryDto.js';
+  import type SummonerDto from '$lib/interfaces/SummonerDto.js';
+  import { Spinner } from 'flowbite-svelte';
+  import { writable, type Writable } from 'svelte/store';
 
   export let data;
 
-  let account: RiotLolAccount | null;
+  $: account = data['data'];
+  $: summoner = writable<SummonerDto | null>(null);
+  $: league = writable<LeagueEntryDto | null>(null);
 
-  const unsubscribe = data.data.subscribe((value) => {
-    account = value;
-  });
+  const { isLoading, error } = data;
 
-  onDestroy(unsubscribe);
+  const setSummoner = (param: Writable<SummonerDto | null>) => {
+    summoner = param;
+  };
+
+  const setLeague = (param: Writable<LeagueEntryDto | null>) => {
+    league = param;
+  };
 </script>
 
-<div>{JSON.stringify(account)}</div>
+<SearchBar></SearchBar>
+
+<div class="flex flex-col items-center p-5 gap-5">
+  {#if $isLoading}
+    <Spinner color="gray" />
+  {:else if $account}
+    <SummonerCard account={$account} {setSummoner}></SummonerCard>
+    {#if $summoner}
+      <SummonerCardElo summoner={$summoner} {setLeague}></SummonerCardElo>
+    {/if}
+  {/if}
+</div>
