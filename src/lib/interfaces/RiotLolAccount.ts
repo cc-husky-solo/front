@@ -1,10 +1,10 @@
-import type { Region } from './Types';
+import type Region from './Region';
 
 export default interface RiotLolAccount {
   puuid: string;
-  gameName: string | null;
-  tagLine: string | null;
-  region: Region | null;
+  gameName?: string;
+  tagLine?: string;
+  region?: Region;
   createdAt: Date;
   updatedAt: Date;
 }

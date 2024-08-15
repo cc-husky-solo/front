@@ -1,4 +1,4 @@
-import type { Region } from './Types';
+import type Region from './Region';
 
 export default interface AccountDto {
   puuid: string;
